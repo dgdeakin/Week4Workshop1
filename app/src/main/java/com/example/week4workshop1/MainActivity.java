@@ -1,5 +1,6 @@
 package com.example.week4workshop1;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         String userName = mySharedPreference.getString("username", "");
         userNameEditText.setText(userName);
 
+        button2.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
+            startActivity(intent);
+        });
+
 
         button1.setOnClickListener(v -> {
 
@@ -56,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Toast.makeText(this,userNameEditText.getText().toString(), Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(MainActivity.this, SavedInstanceStateActivity.class);
+            startActivity(intent);
         });
+
     }
 }
